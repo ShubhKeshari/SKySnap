@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Cloud, Loader2 } from 'lucide-react';
-import SearchBar from '../components/SearchBar';
-import WeatherDisplay from '../components/WeatherDisplay';
-import ForecastDisplay from '../components/ForecastDisplay';
-import ErrorDisplay from '../components/ErrorDisplay';
-import type { WeatherData, ForecastDay } from '../types/weather.types';
-import { fetchCurrentWeather, fetchForecast } from '../services/weatherApi';
+import React, { useState, useEffect } from "react";
+import { Cloud, Loader2 } from "lucide-react";
+import SearchBar from "../components/SearchBar";
+import WeatherDisplay from "../components/WeatherDisplay";
+import ForecastDisplay from "../components/ForecastDisplay";
+import ErrorDisplay from "../components/ErrorDisplay";
+import type { WeatherData, ForecastDay } from "../types/weather.types";
+import { fetchCurrentWeather, fetchForecast } from "../services/weatherApi";
 
 const HomePage: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
@@ -23,10 +23,12 @@ const HomePage: React.FC = () => {
 
       const forecastData = await fetchForecast(city);
       setForecast(forecastData);
-      localStorage.setItem('lastCity', city);
+      localStorage.setItem("lastCity", city);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : 'An error occurred. Please try again.'
+        err instanceof Error
+          ? err.message
+          : "An error occurred. Please try again."
       );
       setWeatherData(null);
       setForecast([]);
@@ -36,7 +38,7 @@ const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-    const lastCity = localStorage.getItem('lastCity');
+    const lastCity = localStorage.getItem("lastCity");
     if (lastCity) {
       handleSearch(lastCity);
     }
@@ -46,9 +48,12 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-12 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-            Weather Forecast
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            SkySnap
           </h1>
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-400 mb-2">
+            Weather Forecast
+          </h2>
           <p className="text-gray-600 text-lg">
             Get real-time weather updates for any city worldwide
           </p>
