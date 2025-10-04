@@ -45,9 +45,9 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-4 px-4">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-5xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
             SkySnap
           </h1>
